@@ -43,19 +43,5 @@ func monitorServerNode() {
 // 保存监听到的服务节点信息
 func saveMonitorServerNodeInfo(opType, key, value string) {
 	log.Printf("监听到服务节点变化,信息详情,type:%s,key:%s,value:%s", opType, key, value)
-
-	/*
-		switch opType {
-		case "PUT":
-			constants.ServerNodeInfoList[key] = value
-			break
-		case "DELETE":
-			delete(constants.ServerNodeInfoList, key)
-			break
-		default:
-			log.Println("监听到未识别的Etcd操作")
-		}
-
-	*/
-	constants.TranServerInfo(opType, key, value)
+	constants.TranEtcdServerInfo(opType, key, value)
 }

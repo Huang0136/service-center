@@ -51,7 +51,7 @@ type Service struct {
 	RegexStr    regexp.Regexp // 正则表达式
 }
 
-var AllHandlers *Handlers
+var AllHandlers Handlers
 
 // 服务节点列表
 var serverNodeList []ServerNode
@@ -81,7 +81,7 @@ var putHandle map[string][]BusinessHandle
 var deleteHandle map[string][]BusinessHandle
 
 func init() {
-	AllHandlers = new(Handlers)
+	AllHandlers = Handlers{}
 	AllHandlers.GetHandlers = make(map[string][]Service)
 	AllHandlers.PostHandlers = make(map[string][]Service)
 	AllHandlers.PutHandlers = make(map[string][]Service)
