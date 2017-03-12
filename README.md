@@ -16,6 +16,6 @@ service-center，也称服务中心，是分布式微服务项目的核心部分
 
 
 # 架构
-![image](logos/架构图.png)
+![image](src/logos/架构图.png)
 
 
