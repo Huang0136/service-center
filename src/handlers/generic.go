@@ -194,6 +194,8 @@ func GenericHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = rpcClient.Call("ServiceNode.RpcCallHandler", rpcReq, rpcResp)
 	if err != nil {
+		// TODO 失败重试
+
 		log.Printf("rpc请求失败,%s\n", err)
 		w.Write([]byte("请求节点失败," + err.Error()))
 		return

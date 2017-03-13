@@ -1,19 +1,20 @@
 package utils
 
 import (
-	"fmt"
 	"testing"
-	"time"
+	"fmt"
 )
 
-// 生成uuid测试
 func TestCreateUUID(t *testing.T) {
-	count := 100000
-	tBegin := time.Now()
-	for i := 1; i <= count; i++ {
-		fmt.Println("creat uuid:", i, ",", CreateUUID())
+	uuid := CreateUUID()
+	if uuid == "" {
+		t.Error("error uuid")
 	}
-	tEnd := time.Now()
+}
 
-	t.Logf("生成uuid:%d次，耗时:%d", count, tEnd.Sub(tBegin).Nanoseconds()/int64(count))
+func BenchmarkCreateUUID(b *testing.B) {
+	for i := 1; i < b.N; i++ {
+		str := CreateUUID()
+		fmt.Println(str)
+	}
 }
